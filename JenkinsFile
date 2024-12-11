@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git 'https://github.com/Pytgor/Jenkins-Test.git' // Replace with your Git repository
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build Docker image from Dockerfile
+                    sh 'docker build -t ubuntu-custom .'
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    // Optional: Push Docker image to Docker Hub
+                    sh 'docker push ubuntu-custom'
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                // Clean up resources
+                sh 'docker system prune -f'
+            }
+        }
+    }
+}
+
