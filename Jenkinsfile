@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('error') {
+    stage('pre-build') {
       steps {
-        sh 'echo "Creating Images"'
+        echo 'pre-build'
       }
     }
 
