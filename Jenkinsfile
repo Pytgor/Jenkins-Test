@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        sh 'sudo docker images'
+        echo 'Creating Docker Image'
       }
     }
 
