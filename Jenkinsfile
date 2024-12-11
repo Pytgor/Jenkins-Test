@@ -1,9 +1,14 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile {
+      filename 'dockerfile'
+    }
+
+  }
   stages {
-    stage('pre-build') {
+    stage('') {
       steps {
-        echo 'pre-build'
+        echo 'Hello'
       }
     }
 
