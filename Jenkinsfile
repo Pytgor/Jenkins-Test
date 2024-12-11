@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('error') {
       steps {
-        echo 'Creating Docker Image'
+        sh 'echo "Creating Images"'
       }
     }
 
